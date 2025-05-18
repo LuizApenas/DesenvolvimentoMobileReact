@@ -18,6 +18,8 @@
       "bundler": "metro",
       "output": "static"
     },
-    "plugins": []
+    "plugins": [
+      "expo-font"
+    ]
   }
 }
