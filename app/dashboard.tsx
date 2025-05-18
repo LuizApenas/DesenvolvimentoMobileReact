@@ -11,7 +11,7 @@ import { StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-nativ
 
 export default function DashboardScreen() {
   const router = useRouter();
-  const params = useLocalSearchParams<{ userName?: string }>();
+  const params = useLocalSearchParams<{ userName?: string; userRole?: string }>();
 
   // Font loading state is no longer managed here
   // let [fontsLoaded, fontError] = useFonts(...);
@@ -23,6 +23,10 @@ export default function DashboardScreen() {
   //   return null;
   // }
 
+  const handleLogout = () => {
+    // Implementation of handleLogout function
+  };
+
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" />
@@ -33,7 +37,7 @@ export default function DashboardScreen() {
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={[styles.mainButton, styles.navButton]}
-          onPress={() => router.push("/employees")} // Navigate to employees screen
+          onPress={() => router.push({ pathname: "/employees", params: { userRole: params.userRole } })}
         >
           <Feather name="users" size={24} color="#23395D" style={styles.iconStyle} />
           <Text style={styles.buttonText}>Funcionários</Text>

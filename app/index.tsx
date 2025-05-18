@@ -1,5 +1,5 @@
-import { useRouter } from "expo-router"; // Import useRouter for navigation
-import { useEffect, useState } from "react";
+import { useFocusEffect, useRouter } from "expo-router"; // Import useRouter and useFocusEffect for navigation
+import { useCallback, useEffect, useState } from "react";
 import { Alert, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import FishLogo from "../assets/images/fish-logo.svg"; // Import the SVG logo
 import { getUserByLoginAndPin, initializeDefaultAdmin } from "../services/userService"; // Import a função de inicialização
@@ -23,6 +23,19 @@ export default function Page() {
     prepareApp();
   }, []);
 
+  // Clear login fields when the screen comes into focus
+  useFocusEffect(
+    useCallback(() => {
+      setLogin("");
+      setPin("");
+      setLoginError("");
+      return () => {
+        // Optional: cleanup if needed when the screen goes out of focus
+        // console.log("Login screen out of focus");
+      };
+    }, [])
+  );
+
   const handleLogin = async () => {
     if (!login.trim() || !pin.trim()) {
       setLoginError("Usuário e PIN são obrigatórios.");
@@ -34,9 +47,11 @@ export default function Page() {
       const user = await getUserByLoginAndPin(login, pin);
       if (user) {
         // Navigate to dashboard on successful login
-        // Pass user's name to the dashboard screen
-        // Use router.push to keep login screen in the navigation stack
-        router.push({ pathname: "/dashboard", params: { userName: user.name } });
+        // Pass user's name and role to the dashboard screen
+        router.push({
+          pathname: "/dashboard",
+          params: { userName: user.name, userRole: user.role },
+        });
       } else {
         setLoginError("Login ou PIN inválido.");
       }
