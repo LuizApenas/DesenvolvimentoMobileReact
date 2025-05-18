@@ -1,4 +1,4 @@
-import { MaterialIcons } from "@expo/vector-icons"; // For icons
+import { FontAwesome5, MaterialIcons } from "@expo/vector-icons"; // For icons
 import { useFocusEffect, useLocalSearchParams, useRouter } from "expo-router";
 import { useCallback, useState } from "react";
 import { Alert, FlatList, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
@@ -88,9 +88,13 @@ export default function EmployeesScreen() {
 
   const renderUserItem = ({ item }: { item: User }) => (
     <View style={styles.userItemContainer}>
+      <FontAwesome5 name="user-circle" size={36} color="#B0BEC5" style={styles.profileIcon} />
       <View style={styles.userInfo}>
         <Text style={styles.userName}>{item.name}</Text>
         <Text style={styles.userDetails}>Login: {item.login}</Text>
+        {(currentUserRole === "ADMIN" || currentUserRole === "gerente") && (
+          <Text style={styles.userDetails}>PIN: {item.pin}</Text>
+        )}
         <Text style={styles.userDetails}>Cargo: {item.role}</Text>
       </View>
       {/* TODO: Add Edit/Delete buttons here */}
@@ -178,6 +182,8 @@ const styles = StyleSheet.create({
     paddingBottom: 80, // Ensure space for FAB
   },
   userItemContainer: {
+    flexDirection: "row", // Added to align icon and info horizontally
+    alignItems: "center", // Center items vertically
     backgroundColor: "#FFFFFF",
     padding: 15,
     borderRadius: 8,
@@ -185,15 +191,17 @@ const styles = StyleSheet.create({
     borderColor: "#E0E0E0",
     borderWidth: 1,
     shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
+    shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
     shadowRadius: 2,
     elevation: 2,
   },
-  userInfo: {},
+  profileIcon: {
+    marginRight: 15, // Space between icon and user info
+  },
+  userInfo: {
+    flex: 1, // Allow userInfo to take remaining space
+  },
   userName: {
     fontSize: 18,
     fontFamily: "Inter_700Bold",
