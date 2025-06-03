@@ -1,50 +1,71 @@
-# Welcome to your Expo app 👋
+📱 Desenvolvimento Mobile com React Native
+Este repositório contém um projeto desenvolvido durante a faculdade, em parceria com meu colega Erick Rocha, como parte da disciplina de Desenvolvimento Mobile. O foco foi aplicar na prática os conceitos aprendidos em sala, utilizando o ecossistema React Native para criar aplicações móveis multiplataforma.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+🚀 Tecnologias Utilizadas
+React Native
 
-## Get started
+Expo
 
-1. Install dependencies
+JavaScript (ES6+)
 
-   ```bash
-   npm install
-   ```
+React Navigation
 
-2. Start the app
+Visual Studio Code
 
-   ```bash
-   npx expo start
-   ```
+📂 Estrutura do Projeto
+bash
+Copiar
+Editar
+📁 src/
+├── 📁 components/      # Componentes reutilizáveis
+├── 📁 screens/         # Telas principais da aplicação
+├── 📁 assets/          # Imagens e recursos visuais
+└── App.js             # Arquivo principal da aplicação
+⚙️ Como Executar
+Clone o repositório:
 
-In the output, you'll find options to open the app in a
+bash
+Copiar
+Editar
+git clone https://github.com/LuizApenas/DesenvolvimentoMobileReact.git
+Acesse a pasta do projeto:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+bash
+Copiar
+Editar
+cd DesenvolvimentoMobileReact
+Instale as dependências:
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+bash
+Copiar
+Editar
+npm install
+Inicie o app com o Expo:
 
-## Get a fresh project
+bash
+Copiar
+Editar
+npx expo start
+Escaneie o QR Code com o aplicativo Expo Go no seu celular para visualizar.
 
-When you're ready, run:
+✨ Funcionalidades (Exemplos)
+Navegação entre telas
 
-```bash
-npm run reset-project
-```
+Componentes personalizados com props
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Integração com APIs (se aplicável)
 
-## Learn more
+Layout responsivo
 
-To learn more about developing your project with Expo, look at the following resources:
+Uso de hooks (useState, useEffect)
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+🤝 Parceria Acadêmica
+Este projeto foi desenvolvido em colaboração com Erick Rocha, como parte da nossa jornada na área de tecnologia. Trabalhar em equipe nos permitiu dividir tarefas, praticar versionamento com Git e aplicar boas práticas de desenvolvimento.
 
-## Join the community
+📌 Observações
+O projeto é voltado ao aprendizado prático de React Native, com foco em consolidar conceitos.
 
-Join our community of developers creating universal apps.
+Futuramente pode ser expandido para incluir autenticação, banco de dados, e funcionalidades mais avançadas.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+📜 Licença
+Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
